@@ -13,16 +13,19 @@ import org.junit.Before
 import org.junit.Test
 import vn.com.nexle.entrancetest.presentation.signin.viewmodel.ViewModelSignIn
 import vn.com.nexle.entrancetest.repository.FakeRepository
+import vn.com.nexle.entrancetest.util.ConnectivityDetector
 
 class ViewModelTest {
     private lateinit var entranceRepository: FakeRepository
+    private lateinit var connectivityDetector: ConnectivityDetector
     private lateinit var viewModel: ViewModelSignIn
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
     @Before
     fun setUp() {
         entranceRepository = mockk()
-        viewModel = ViewModelSignIn(entranceRepository)
+        connectivityDetector = mockk()
+        viewModel = ViewModelSignIn(entranceRepository, connectivityDetector)
         Dispatchers.setMain(mainThreadSurrogate)
     }
 
