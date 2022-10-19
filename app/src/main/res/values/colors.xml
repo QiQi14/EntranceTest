@@ -17,6 +17,7 @@
     
     <color name="button_primary_relief">#7367F0</color>
     <color name="button_primary_relief_pressed">#4D44A3</color>
+    <color name="button_primary_relief_disable">#9A98AE</color>
 
     <color name="background_dashboard">#F8F8F8</color>
 

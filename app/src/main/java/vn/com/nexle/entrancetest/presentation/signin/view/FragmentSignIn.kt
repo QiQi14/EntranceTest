@@ -2,13 +2,11 @@ package vn.com.nexle.entrancetest.presentation.signin.view
 
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import vn.com.nexle.entrancetest.R
 import vn.com.nexle.entrancetest.databinding.FragmentSigninBinding
@@ -21,7 +19,7 @@ import vn.com.nexle.entrancetest.presentation.widget.CustomBulletTransformationM
 
 @AndroidEntryPoint
 class FragmentSignIn : BaseFragment<FragmentSigninBinding>(FragmentSigninBinding::inflate) {
-    private val viewModel by viewModels<ViewModelSignIn>()
+    private val viewModel by activityViewModels<ViewModelSignIn>()
 
     override fun initialize() {
         binding.edtPassword.transformationMethod = CustomBulletTransformationMethod()
@@ -31,6 +29,8 @@ class FragmentSignIn : BaseFragment<FragmentSigninBinding>(FragmentSigninBinding
         addTextWatcher()
         binding.apply {
             btnSignIn.setOnSingleClickListener {
+                if (mMainActivity.connectivity)
+
                 if (!edtEmail.text.toString().isValidEmail()) {
                     if (edtEmail.text.isEmpty()) {
                         tvEmailErrorMessage.text = getText(R.string.str_signin_error_email_empty)
@@ -116,7 +116,20 @@ class FragmentSignIn : BaseFragment<FragmentSigninBinding>(FragmentSigninBinding
                         navigate(direction)
                     }
                 }
+
+                launch {
+                    viewModel.connectivity.collect {
+                        buttonClickControl(it)
+                    }
+                }
             }
+        }
+    }
+
+    private fun buttonClickControl(enable: Boolean) {
+        binding.apply {
+            btnSignIn.isEnabled = enable
+            btnSignIn.isClickable = enable
         }
     }
 

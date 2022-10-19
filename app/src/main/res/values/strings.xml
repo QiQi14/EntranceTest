@@ -45,4 +45,5 @@
     <string name="str_dashboard_copyright">COPYRIGHT © 2020</string>
     <string name="str_available">Available</string>
     <string name="str_logout">Logout</string>
+    <string name="str_no_internet_connection">Không có kết nối Internet</string>
 </resources>

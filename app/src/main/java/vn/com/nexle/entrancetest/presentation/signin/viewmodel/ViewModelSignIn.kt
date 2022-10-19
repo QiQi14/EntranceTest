@@ -13,11 +13,14 @@ import org.jetbrains.annotations.TestOnly
 import org.json.JSONObject
 import retrofit2.HttpException
 import vn.com.nexle.entrancetest.data.repository.EntranceRepository
+import vn.com.nexle.entrancetest.util.ConnectivityDetector
+import vn.com.nexle.entrancetest.util.NetworkStatus
 import javax.inject.Inject
 
 @HiltViewModel
 class ViewModelSignIn @Inject constructor(
-    private val entranceRepository: EntranceRepository
+    private val entranceRepository: EntranceRepository,
+    private val connectivityDetector: ConnectivityDetector,
 ) : ViewModel() {
 
     private val _textToDisplay: MutableStateFlow<String> = MutableStateFlow("")
@@ -25,6 +28,26 @@ class ViewModelSignIn @Inject constructor(
 
     private val _navigateToResults = Channel<String>(Channel.BUFFERED)
     val navigateToResults = _navigateToResults.receiveAsFlow()
+
+    private val _connectivity: MutableStateFlow<Boolean> = MutableStateFlow(false)
+    val connectivity = _connectivity.asStateFlow()
+
+    private var needUpdateNetworkState = true
+    fun startListeningToNetwork() {
+        viewModelScope.launch {
+            connectivityDetector.networkStatus().collect {
+                if (it == NetworkStatus.AVAILABLE && needUpdateNetworkState) {
+                    needUpdateNetworkState = false
+                    _connectivity.emit(true)
+                }
+
+                if (it == NetworkStatus.UNAVAILABLE) {
+                    needUpdateNetworkState = true
+                    _connectivity.emit(false)
+                }
+            }
+        }
+    }
 
     fun signIn(email: String, password: String, remember: Boolean) {
         viewModelScope.launch {

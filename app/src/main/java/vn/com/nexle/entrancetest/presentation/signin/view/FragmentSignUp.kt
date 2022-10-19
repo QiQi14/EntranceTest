@@ -2,7 +2,7 @@ package vn.com.nexle.entrancetest.presentation.signin.view
 
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -20,7 +20,7 @@ import vn.com.nexle.entrancetest.presentation.widget.CustomBulletTransformationM
 
 @AndroidEntryPoint
 class FragmentSignUp : BaseFragment<FragmentSignupBinding>(FragmentSignupBinding::inflate) {
-    private val viewModel by viewModels<ViewModelSignIn>()
+    private val viewModel by activityViewModels<ViewModelSignIn>()
 
     override fun initialize() {
         binding.edtPassword.transformationMethod = CustomBulletTransformationMethod()
@@ -99,7 +99,20 @@ class FragmentSignUp : BaseFragment<FragmentSignupBinding>(FragmentSignupBinding
                         navigate(direction)
                     }
                 }
+
+                launch {
+                    viewModel.connectivity.collect {
+                        buttonClickControl(it)
+                    }
+                }
             }
+        }
+    }
+
+    private fun buttonClickControl(enable: Boolean) {
+        binding.apply {
+            btnSignUp.isEnabled = enable
+            btnSignUp.isClickable = enable
         }
     }
 

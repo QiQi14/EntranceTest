@@ -14,4 +14,23 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/navigation_main"
         tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:id="@+id/toastMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="0.95"
+        android:background="@drawable/toast_gray_radius_small"
+        android:paddingHorizontal="@dimen/spacing_medium"
+        android:paddingVertical="@dimen/spacing_small"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/text_heading"
+        android:textSize="@dimen/text_medium"
+        android:text="@string/str_no_internet_connection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/nav_host_fragment" />
 </androidx.constraintlayout.widget.ConstraintLayout>
