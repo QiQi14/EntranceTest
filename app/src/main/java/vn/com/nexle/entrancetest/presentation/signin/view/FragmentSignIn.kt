@@ -54,6 +54,24 @@ class FragmentSignIn : BaseFragment<FragmentSigninBinding>(FragmentSigninBinding
             }
 
             tvSignInRegister.setOnSingleClickListener {
+                binding.apply {
+                    if (edtEmail.text.isNotEmpty()) {
+                        edtEmail.text.clear()
+                    }
+
+                    if (edtPassword.text.isNotEmpty()) {
+                        edtPassword.text.clear()
+                    }
+
+                    if (tvEmailErrorMessage.text.isNotEmpty()) {
+                        tvEmailErrorMessage.text = ""
+                    }
+
+                    if (tvPasswordErrorMessage.text.isNotEmpty()) {
+                        tvPasswordErrorMessage.text = ""
+                    }
+                }
+
                 val directions = FragmentSignInDirections.actionFragmentSigninToFragmentSignup()
                 navigate(directions)
             }
@@ -74,6 +92,24 @@ class FragmentSignIn : BaseFragment<FragmentSigninBinding>(FragmentSigninBinding
 
                 launch {
                     viewModel.navigateToResults.collect {
+                        binding.apply {
+                            if (edtEmail.text.isNotEmpty()) {
+                                edtEmail.text.clear()
+                            }
+
+                            if (edtPassword.text.isNotEmpty()) {
+                                edtPassword.text.clear()
+                            }
+
+                            if (tvEmailErrorMessage.text.isNotEmpty()) {
+                                tvEmailErrorMessage.text = ""
+                            }
+
+                            if (tvPasswordErrorMessage.text.isNotEmpty()) {
+                                tvPasswordErrorMessage.text = ""
+                            }
+                        }
+
                         val direction = FragmentSignInDirections.actionFragmentSigninToFragmentDashboard(
                             displayName = it
                         )
