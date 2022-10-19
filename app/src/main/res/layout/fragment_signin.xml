@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/imvHeader"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/image_signin_1"
+        app:layout_constraintDimensionRatio="W, 0.48:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSignInWelcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.9"
+        android:layout_marginTop="@dimen/spacing_signin_image"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/str_signin_welcome"
+        android:textSize="@dimen/text_large"
+        android:textColor="@color/text_heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imvHeader" />
+
+    <TextView
+        android:id="@+id/tvSignInHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.9"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/str_signin_hint"
+        android:textSize="@dimen/text_medium"
+        android:textColor="@color/text_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSignInWelcome" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/str_signin_email"
+        android:textSize="@dimen/text_small"
+        android:textColor="@color/text_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSignInHint"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingHorizontal="@dimen/spacing_medium"
+        android:inputType="textEmailAddress"
+        app:layout_constraintHeight_percent="0.05"
+        android:background="@drawable/ib_white_radius_small_stroke_gray_selector"
+        android:fontFamily="@font/montserrat_medium"
+        android:hint="@string/str_signin_email_hint"
+        android:textColorHint="@color/text_input_hint_primary"
+        android:textSize="@dimen/text_small"
+        android:textColor="@color/text_input_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEmail"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <TextView
+        android:id="@+id/tvEmailErrorMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        tools:text="@string/str_signin_error_email_empty"
+        android:textColor="@color/text_error_primary"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/str_signin_password"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintEnd_toStartOf="@+id/glHalfVertical"
+        app:layout_constraintTop_toBottomOf="@id/tvEmailErrorMessage"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glHalfVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:gravity="end"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/str_signin_forgot_password"
+        android:textColor="@color/text_body_highlight_blue_selector"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintStart_toStartOf="@+id/glHalfVertical"
+        app:layout_constraintTop_toBottomOf="@id/tvEmailErrorMessage"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingHorizontal="@dimen/spacing_medium"
+        android:inputType="textPassword"
+        android:background="@drawable/ib_white_radius_small_stroke_gray_selector"
+        android:hint="@string/str_signin_password_hint"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColorHint="@color/text_input_hint_primary"
+        android:textSize="@dimen/text_small"
+        android:textColor="@color/text_input_primary"
+        android:letterSpacing="0.2"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPassword"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <TextView
+        android:id="@+id/tvPasswordErrorMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        tools:text="@string/str_signin_error_password_empty"
+        android:textColor="@color/text_error_primary"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/str_signin_remember_password"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintStart_toStartOf="@+id/edtPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tvPasswordErrorMessage" />
+
+    <TextView
+        android:id="@+id/btnSignIn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.05"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="center"
+        android:text="@string/str_signin"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_medium"
+        android:background="@drawable/btn_blue_radius_small_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkBox" />
+
+    <TextView
+        android:id="@+id/tvSignInRegisterHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:paddingHorizontal="@dimen/spacing_small"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="end"
+        android:text="@string/str_signin_register_hint"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintEnd_toStartOf="@+id/glHalfVertical"
+        app:layout_constraintTop_toBottomOf="@id/btnSignIn"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <TextView
+        android:id="@+id/tvSignInRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:paddingHorizontal="@dimen/spacing_small"
+        android:gravity="start"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/str_signin_register"
+        android:textColor="@color/text_body_highlight_blue_selector"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintStart_toEndOf="@+id/glHalfVertical"
+        app:layout_constraintTop_toBottomOf="@id/btnSignIn"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/line_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDecor1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvDecor1"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <TextView
+        android:id="@+id/tvDecor1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:paddingHorizontal="@dimen/spacing_medium"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="start"
+        android:text="@string/str_decor_or"
+        android:textColor="@color/text_body"
+        android:textSize="@dimen/text_small"
+        android:background="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/glHalfVertical"
+        app:layout_constraintStart_toEndOf="@+id/glHalfVertical"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignInRegisterHint" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.05"
+        android:layout_marginTop="@dimen/spacing_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view">
+
+        <ImageView
+            android:id="@+id/imvFacebook"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintDimensionRatio="H, 1:1"
+            android:src="@drawable/ic_facebook"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imvTwitter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_medium"
+            app:layout_constraintDimensionRatio="H, 1:1"
+            android:src="@drawable/ic_twitter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imvFacebook"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imvMail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_medium"
+            app:layout_constraintDimensionRatio="H, 1:1"
+            android:src="@drawable/ic_mail"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imvTwitter"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imvGit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_medium"
+            app:layout_constraintDimensionRatio="H, 1:1"
+            android:src="@drawable/ic_git"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imvMail"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

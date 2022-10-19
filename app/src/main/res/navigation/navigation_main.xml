@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/fragmentSignin">
+
+    <fragment
+        android:id="@+id/fragmentSignin"
+        android:name="vn.com.nexle.entrancetest.presentation.signin.view.FragmentSignIn"
+        android:label="FragmentSignIn"
+        tools:layout="@layout/fragment_signin">
+        <action
+            android:id="@+id/action_fragmentSignin_to_fragmentSignup"
+            app:destination="@id/fragmentSignup" />
+        <action
+            android:id="@+id/action_fragmentSignin_to_fragmentDashboard"
+            app:destination="@id/fragmentDashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSignup"
+        android:name="vn.com.nexle.entrancetest.presentation.signin.view.FragmentSignUp"
+        android:label="FragmentSignUp"
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/action_fragmentSignup_to_fragmentDashboard"
+            app:destination="@id/fragmentDashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentDashboard"
+        android:name="vn.com.nexle.entrancetest.presentation.dashboard.view.FragmentDashboard"
+        android:label="FragmentDashboard"
+        tools:layout="@layout/fragment_dashboard">
+
+        <argument android:name="displayName"
+            app:argType="string"
+            android:defaultValue=""/>
+
+        <action
+            android:id="@+id/action_fragmentDashboard_to_fragmentSignin"
+            app:destination="@id/fragmentSignin"
+            app:popUpTo="@id/fragmentDashboard"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>

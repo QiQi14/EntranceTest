@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_body">#6E6B7B</color>
+    <color name="text_body_highlight_blue">#7367F0</color>
+    <color name="text_body_highlight_blue_pressed">#5B52BF</color>
+    <color name="text_heading">#5E5873</color>
+    <color name="text_error_primary">#EA5455</color>
+    <color name="text_input_hint_primary">#B9B9C3</color>
+    <color name="text_input_primary">#141414</color>
+
+    <color name="line_gray">#E9EAEC</color>
+
+    <color name="input_border">#D8D6DE</color>
+    <color name="input_border_focused">#7367F0</color>
+    <color name="input_background_white">#FFFFFF</color>
+    <color name="input_background_white_pressed">#CDCDCD</color>
+    
+    <color name="button_primary_relief">#7367F0</color>
+    <color name="button_primary_relief_pressed">#4D44A3</color>
+
+    <color name="background_dashboard">#F8F8F8</color>
+
+    <!--Default-->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green">#28C76F</color>
+</resources>

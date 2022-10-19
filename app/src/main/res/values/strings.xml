@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Entrance Test</string>
+
+    <string name="str_decor_or">or</string>
+
+    <!-- Sign In -->
+    <string name="str_signin_welcome">Welcome to Entrance Test Interview!</string>
+    <string name="str_signin_hint">Please sign-in to your account and start the adventure</string>
+    <string name="str_signin_email">Email<font fgcolor='red'>*</font></string>
+    <string name="str_signin_email_hint">johndoe@gmail.com</string>
+    <string name="str_signin_password">Password<font fgcolor='red'>*</font></string>
+    <string name="str_signin_password_hint">⚉⚉⚉⚉⚉⚉⚉⚉⚉⚉⚉⚉</string>
+    <string name="str_signin_forgot_password">Forgot Password?</string>
+    <string name="str_signin_remember_password">Remember me</string>
+    <string name="str_signin">Login</string>
+    <string name="str_signin_register_hint">New on our platform?</string>
+    <string name="str_signin_register">Create an account</string>
+
+    <string name="str_signin_error_email_empty">Email is required</string>
+    <string name="str_signin_error_email_not_valid">Email is not valid</string>
+    <string name="str_signin_error_password_empty">Password is required</string>
+    <string name="str_signin_error_password_not_valid">Password is not valid</string>
+
+    <!-- Sign Up -->
+    <string name="str_signup_welcome">Adventure starts here</string>
+    <string name="str_signup_hint">Make your app management easy and fun!</string>
+    <string name="str_signup_first_name">First name<font fgcolor='red'>*</font></string>
+    <string name="str_signup_last_name">Last name<font fgcolor='red'>*</font></string>
+    <string name="str_signup_name_hint">johndoe</string>
+    <string name="str_signup_email">Email<font fgcolor='red'>*</font></string>
+    <string name="str_signup_password">Password<font fgcolor='red'>*</font></string>
+    <string name="str_signup_i_agree">i agree to</string>
+    <string name="str_signup_privacy_and_terms">privacy policy &amp; terms</string>
+    <string name="str_signup">Sign Up</string>
+    <string name="str_signup_signin_hint">Already have an account?</string>
+    <string name="str_signup_signin">Sign in instead</string>
+
+    <string name="str_signup_error_first_name_empty">First name is required</string>
+    <string name="str_signup_error_first_name_not_valid">First name is not valid (as least 2 characters)</string>
+    <string name="str_signup_error_last_name_empty">Last name is required</string>
+    <string name="str_signup_error_last_name_not_valid">Last name is not valid (as least 2 characters)</string>
+
+    <!-- Dashboard -->
+    <string name="str_dashboard_welcome">Welcome to Demo App</string>
+    <string name="str_dashboard_copyright">COPYRIGHT © 2020</string>
+    <string name="str_available">Available</string>
+    <string name="str_logout">Logout</string>
+</resources>
