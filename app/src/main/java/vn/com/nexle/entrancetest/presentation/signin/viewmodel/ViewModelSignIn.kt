@@ -29,7 +29,7 @@ class ViewModelSignIn @Inject constructor(
     private val _navigateToResults = Channel<String>(Channel.BUFFERED)
     val navigateToResults = _navigateToResults.receiveAsFlow()
 
-    private val _connectivity: MutableStateFlow<Boolean> = MutableStateFlow(false)
+    private val _connectivity: MutableStateFlow<Boolean> = MutableStateFlow(connectivityDetector.isConnected())
     val connectivity = _connectivity.asStateFlow()
 
     private var needUpdateNetworkState = true

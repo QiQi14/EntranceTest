@@ -92,6 +92,9 @@ class FragmentSignIn : BaseFragment<FragmentSigninBinding>(FragmentSigninBinding
 
                 launch {
                     viewModel.navigateToResults.collect {
+                        if (it == "logout") {
+                            return@collect
+                        }
                         binding.apply {
                             if (edtEmail.text.isNotEmpty()) {
                                 edtEmail.text.clear()

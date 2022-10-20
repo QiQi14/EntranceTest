@@ -8,6 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.NavHostFragment
+import com.auth0.android.jwt.JWT
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import vn.com.nexle.entrancetest.R
@@ -37,9 +38,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         val inflater = navHostFragment?.navController?.navInflater
         val navGraph = inflater?.inflate(R.navigation.navigation_main)
 
-        if (localDataSource.getAccessToken().isNotEmpty()) {
+        val accessToken = localDataSource.getAccessToken()
+        if (accessToken.isNotEmpty() && (JWT(accessToken).expiresAt?.time ?: 0) - System.currentTimeMillis() > 1000) {
             navGraph?.setStartDestination(R.id.fragmentDashboard)
         } else {
+            viewModel.logOut()
             navGraph?.setStartDestination(R.id.fragmentSignin)
         }
 
