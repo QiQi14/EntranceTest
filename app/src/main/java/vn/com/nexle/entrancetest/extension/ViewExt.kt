@@ -47,7 +47,7 @@ fun View.slideAnimation(direction: SlideDirection, type: SlideType, duration: Lo
         val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         displayMetrics = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val display: Display? = display
-            display!!.getRealMetrics(displayMetrics)
+            display?.getRealMetrics(displayMetrics)
             displayMetrics
         } else {
             windowManager.defaultDisplay.getMetrics(displayMetrics)

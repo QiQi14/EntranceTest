@@ -2,6 +2,7 @@ package vn.com.nexle.entrancetest.presentation
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.Lifecycle
@@ -80,10 +81,24 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun showToast() {
-        binding.toastMessage.slideAnimation(SlideDirection.UP, SlideType.SHOW)
+        binding.toastMessage.apply {
+            try {
+                slideAnimation(SlideDirection.UP, SlideType.SHOW)
+            } catch (ex : Exception) {
+                ex.printStackTrace()
+                visibility = View.VISIBLE
+            }
+        }
     }
 
     private fun hideToast() {
-        binding.toastMessage.slideAnimation(SlideDirection.DOWN, SlideType.HIDE)
+        binding.toastMessage.apply {
+            try {
+                slideAnimation(SlideDirection.DOWN, SlideType.HIDE)
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+                visibility = View.GONE
+            }
+        }
     }
 }
